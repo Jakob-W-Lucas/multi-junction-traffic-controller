@@ -1,0 +1,46 @@
+===== Resources =====
+
+https://arxiv.org/pdf/1905.05717 - CoLight: Learning Network-level Cooperation for Traffic Signal Control
+
+https://ojs.aaai.org/index.php/AAAI/article/view/5744/5600 - Toward A Thousand Lights: Decentralized Deep Reinforcement Learning for Large-Scale Traffic Signal Control
+
+
+===== Agent Plan =====
+
+What we wish to do is to create something novel, but not overly complicated. Project should take about a month (end date should plan for is say 15-Feb).
+
+Design an RL agent built upon Graph Neural Networks (GNNs, GCNs, GATs etc) that controls the traffic lights in an intersection. Use a Deep Q Network (DQN) to output a
+priority score for each road (node). The reward function for this agent will primarily consider the number of cars waiting, and the total / relative amount of waiting
+each car has or will need to do, as well as obviously getting the car through the roundabout.
+
+Based on this priority score, we use a precomputed function to determine which traffic phase (which set of lights, for example North-South + South-North) to turn on.
+This could be just as simple as adding up all the scores for each light controlled by the phase, but could be more complicated, considering safety, minimum light on
+time, etc to make it more realistic (Value Decomposition). This probably should be hardcoded, the agent does not deal with phases, just lights, and has more than enough
+to deal with at the moment.
+
+This novel part of this project is the ability to generalise. Currently, "Zero-shot traffic control" (one agent to rule them all) is not possible under current research.
+What we could do instead is: for 95% of the time we train on a bunch of precomputed, possibly randomly predetermined intersections. Once this has been completed we go on
+to spend a little bit of time, say 5% or about 100,000+ timesteps on other, specific intersections, possibly ones that the user can generate. If the target training takes
+say less than a minute (which it wont) then we could even contruct an app that could let you create an intersection and then play it.
+
+===== Simulation options =====
+
+Not my domain, but these could be options to simplify environment making.... Still lots of stuff like automated intersection generation which would be interesting
+
+https://toruseo.jp/UXsim/docs/
+
+https://sumo.dlr.de/docs/index.html
+
+===== Project Main Areas =====
+
+1. Connecting to the environment. We need to setup either a custom or ready-made environment to be able to run thousands of timesteps per second. Need to be able to wrap
+   the graphs + intersection creators + agent results into this environment. If we choose to use something such as UXsim, the formatting is a little different, need a
+   lightweight wrapper to connect the two.
+2. Creating intersections. We need to be able to randomly generate "baseline" intersections (the ones that the agent will base its training upon), as well as "target"
+   intersections that the agent can generalise towards through fine-tuning. Need to generate validation intersections as well
+3. Hardcode the "phase transition logic". For every possible intersection we need to be able to create an algorithm that defines each possible traffic light phase per
+   intersection. This could be anywhere between two possibilities and hundreds. We also need to hardcode how the agent's per-road scores get turned into phases
+3. Create the agent. Based upon these randomly generated intersections and the environment, we need to be able to create an agent that uses this phase transition logic
+   to iteratively improve upon itself and its performance
+
+

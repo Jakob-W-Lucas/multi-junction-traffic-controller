@@ -1,0 +1,27 @@
+# Simulator (Change according to later decision)
+uxsim>=1.0
+
+# The Brain (Deep Learning)
+torch>=2.0
+torch_geometric
+
+# The Math & Graph Logic (For Phase Generation)
+networkx
+numpy
+pandas
+
+# The Visuals (For your report)
+matplotlib
+tqdm
+
+# My Installation Steps: (all inside git folder)
+# Create a new environment (needed for low python level)
+#     python3 -m venv .junctionvenv
+#     source .junctionvenv/bin/activate
+
+# Upgrade pip (optional again)
+#     pip install --upgrade pip
+
+# Install requirements
+#     pip install torch torchvision
+#     pip install -r requirements.txt
