@@ -8,32 +8,32 @@ if __name__ == "__main__":
     n_stop2 = Node([0.75,  2.0], [0.0, -1.0], NodeType.STOP, "n_stop2")
     n_stop3 = Node([0.25,  2.0], [0.0, -1.0], NodeType.STOP, "n_stop3")
 
-    n_end1  = Node([-1.25,  2.0], [0.0, -1.0], NodeType.END, "n_end1")
-    n_end2  = Node([-0.75,  2.0], [0.0, -1.0], NodeType.END, "n_end2")
-    n_end3  = Node([-0.25,  2.0], [0.0, -1.0], NodeType.END, "n_end3")
+    n_end1  = Node([-1.25,  2.0], [0.0, 1.0], NodeType.END, "n_end1")
+    n_end2  = Node([-0.75,  2.0], [0.0, 1.0], NodeType.END, "n_end2")
+    n_end3  = Node([-0.25,  2.0], [0.0, 1.0], NodeType.END, "n_end3")
 
     # South road (pointing up toward north)
-    s_stop1 = Node([-1.25, -2.0], [0.0,  1.0], NodeType.STOP, "s_stop1")
-    s_stop2 = Node([-0.75, -2.0], [0.0,  1.0], NodeType.STOP, "s_stop2")
-    s_stop3 = Node([-0.25, -2.0], [0.0,  1.0], NodeType.STOP, "s_stop3")
+    s_stop1 = Node([-1.25, -2.0], [0.0, 1.0], NodeType.STOP, "s_stop1")
+    s_stop2 = Node([-0.75, -2.0], [0.0, 1.0], NodeType.STOP, "s_stop2")
+    s_stop3 = Node([-0.25, -2.0], [0.0, 1.0], NodeType.STOP, "s_stop3")
 
-    s_end1  = Node([1.25, -2.0], [0.0,  1.0], NodeType.END, "s_end1")
-    s_end2  = Node([0.75, -2.0], [0.0,  1.0], NodeType.END, "s_end2")
-    s_end3  = Node([0.25, -2.0], [0.0,  1.0], NodeType.END, "s_end3")
+    s_end1  = Node([1.25, -2.0], [0.0, -1.0], NodeType.END, "s_end1")
+    s_end2  = Node([0.75, -2.0], [0.0, -1.0], NodeType.END, "s_end2")
+    s_end3  = Node([0.25, -2.0], [0.0, -1.0], NodeType.END, "s_end3")
 
     # West road (pointing right toward east)
     w_stop1 = Node([-2.0, 0.25], [ 1.0, 0.0], NodeType.STOP, "w_stop1")
     w_stop2 = Node([-2.0, 0.75], [ 1.0, 0.0], NodeType.STOP, "w_stop2")
 
-    w_end1  = Node([-2.0, -0.25], [ 1.0, 0.0], NodeType.END, "w_end1")
-    w_end2  = Node([-2.0, -0.75], [ 1.0, 0.0], NodeType.END, "w_end2")
+    w_end1  = Node([-2.0, -0.25], [ -1.0, 0.0], NodeType.END, "w_end1")
+    w_end2  = Node([-2.0, -0.75], [ -1.0, 0.0], NodeType.END, "w_end2")
 
     # East road (pointing left toward west)
     e_stop1 = Node([ 2.0, -0.25], [-1.0, 0.0], NodeType.STOP, "e_stop1")
     e_stop2 = Node([ 2.0, -0.75], [-1.0, 0.0], NodeType.STOP, "e_stop2")
 
-    e_end1  = Node([ 2.0,  0.25], [-1.0, 0.0], NodeType.END, "e_end1")
-    e_end2  = Node([ 2.0,  0.75], [-1.0, 0.0], NodeType.END, "e_end2")
+    e_end1  = Node([ 2.0,  0.25], [1.0, 0.0], NodeType.END, "e_end1")
+    e_end2  = Node([ 2.0,  0.75], [1.0, 0.0], NodeType.END, "e_end2")
 
     
     edges = []
